@@ -3,23 +3,20 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
 
-// Database key
-const dataBase = require('./config/key').mongoURI;
+app.use(express.json());
+app.use(cors());
 
-//Connect to database
-mongoose.connect(dataBase, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() => {
+require('dotenv').config();
+const dbConnection = process.env.MONGOATLAS;
+
+mongoose.connect(dbConnection, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
     console.log('MongoDB connected');
 }).catch(error => {
     console.log(error);
 });
 
-
-const items = require('./routes/api/items'); // Path to the item routes
-
-app.use('api/items', items); // use the routes 
-app.use(express.json());
-app.use(cors());
-
+const items = require('./routes/api/items'); // Path to routes
+app.use('api/items', items); // Use routes 
 
 // Listen for requests
 const port = process.env.PORT || 5000;
