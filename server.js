@@ -9,14 +9,14 @@ app.use(cors());
 require('dotenv').config();
 const dbConnection = process.env.MONGOATLAS;
 
-mongoose.connect(dbConnection, { useNewUrlParser: true, useUnifiedTopology: true }).then(() => {
+mongoose.connect(dbConnection, { useNewUrlParser: true, useUnifiedTopology: true}).then(() => {
     console.log('MongoDB connected');
 }).catch(error => {
     console.log(error);
 });
 
 const items = require('./routes/api/items'); // Path to routes
-app.use('api/items', items); // Use routes 
+app.use('/api/items', items); // Use routes 
 
 // Listen for requests
 const port = process.env.PORT || 5000;
