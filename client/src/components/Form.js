@@ -45,36 +45,36 @@ function Form() {
         <form onSubmit={handleSubmit}>
             <h2>Create new listing</h2>
             <div>
-                <label htmlFor='form'>Title:
-                <input type='text' placeholder='title' onChange={onChangeTitle} value={title}></input>
+                <label htmlFor='title'>Title:
+                <input type='text' id='title' placeholder='title' onChange={onChangeTitle} value={title}></input>
                 </label>
             </div>
 
             <div>
-                <label htmlFor='form'>Job title:
-                <input type='text' placeholder='job title' onChange={onChangeJobTitle} value={jobTitle}></input>
+                <label htmlFor='job title'>Job title:
+                <input type='text' id='job title' placeholder='job title' onChange={onChangeJobTitle} value={jobTitle}></input>
                 </label>
             </div>
 
             <div>
-                <label htmlFor='form'>School:
-                <input type='text' placeholder='school' onChange={onChangeSchool} value={school}></input>
+                <label htmlFor='school'>School:
+                <input type='text' id='school' placeholder='school' onChange={onChangeSchool} value={school}></input>
                 </label>
             </div>
 
             <div>
-                <label htmlFor='form'>Salary:
-                <input type='text' placeholder='salary' onChange={onChangeSalary} value={salary}></input>
+                <label htmlFor='salary'>Salary:
+                <input type='text' id='salary' placeholder='salary' onChange={onChangeSalary} value={salary}></input>
                 </label>
             </div>
 
             <div>
-                <label htmlFor='form'>Description:
-                <input type='text' placeholder='description' onChange={onChangeDescription} value={description}></input>
+                <label htmlFor='description'>Description:
+                <input type='text' id='description' placeholder='description' onChange={onChangeDescription} value={description}></input>
                 </label>
             </div>
-                <label htmlFor='form'>
-                    <input type='submit' value='save'></input>
+                <label htmlFor='submit'>
+                    <input type='submit' id='submit' value='save'></input>
                 </label>
         </form>
     )
