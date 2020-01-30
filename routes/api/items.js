@@ -29,10 +29,10 @@ router.get('/:id', (req, res) => {
 
 // Delete database item
 router.delete('/:id', (req, res) => {
-    Item.findById(req.params.id)
+    Item.findOneAndDelete(req.params.id)
         .then(item => item.remove()
-            .then(res.json('Item has been deleted')))
-        .catch(error => { res.status(404).json('Item cannot be found' + error) })
+            .then(res.json('sucess')))
+        .catch(error => { res.status(404).json(error)})
 })
 
 module.exports = router;
