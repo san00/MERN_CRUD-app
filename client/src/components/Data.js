@@ -11,18 +11,30 @@ function Data() {
                 .then(res => {
                     setListItems(res.data)
                 }).catch((error) => {
-                    console.log(error);
+                    console.error(error);
                 })
         }
         fetchItems()
+        
     }, [])
 
-    const itemsInList = listItems ? (listItems.map((jobPost, index) => {
+
+    const removeItem = (id) => {
+        axios.delete(`/api/items/${id}`)
+            .then(res => console.log(res.data)
+            )
+            .catch((error) => {
+                console.error(error);
+            })
+        window.location = '/'
+    }
+
+    const itemsInList = listItems ? (listItems.map((jobPost, id, index) => {
         return (
-            <List key={index} jobPost={jobPost} index={index} />
+            <List key={id} jobPost={jobPost} index={index} removeItem={removeItem} />
         )
     })) : 'Error, unable to connect'
-
+   
     return (
         <section>
             {itemsInList}
