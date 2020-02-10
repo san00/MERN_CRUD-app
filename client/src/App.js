@@ -9,9 +9,9 @@ import {BrowserRouter as Router, Route} from "react-router-dom";
 function App() {
   return (
     <Router>
-      <Navbar/>
-      <Route path="/" exact component ={Data} />
-      <Route path="/create" component ={Form} />
+      <Navbar data-test='component-app'/>
+      <Route path="/" exact component ={Data} data-test='component-app' />
+      <Route path="/create" component ={Form} data-test='component-app'/>
     </Router>
   );
 }
