@@ -7,9 +7,7 @@ const Item = require('../../models/Item');
 // Create a database item
 router.post('/', (req, res) => {
     const newItem = new Item({
-        title: req.body.title,
         jobTitle: req.body.jobTitle,
-        school: req.body.school,
         salary: req.body.salary,
         description: req.body.description
     });
@@ -24,7 +22,7 @@ router.get('/', (req, res) => {
 // Get a single database item
 router.get('/:id', (req, res) => {
     Item.findById(req.params.id).then(item => res.json(item))
-        .catch(error => { res.status(404).json('Error, item not found, please check the id is correct. ' + error) })
+        .catch(error => { res.status(400).json({error:'Error, item not found, please check the id is correct. '}) })
 });
 
 // Delete database item

@@ -1,13 +1,11 @@
 import React from 'react'
 
 function List({jobPost, removeItem}) {
-    const { title, jobTitle, school, salary, description } = jobPost
+    const { jobTitle, salary, description } = jobPost
 
     return (
         <article>
-            <h1>{title}</h1>
-            <p>{jobTitle}</p> 
-            <p>{school}</p>
+            <h1>{jobTitle}</h1>
             <p>{salary}</p> 
             <p>{description}</p>
             <button type='submit' onClick={removeItem}>delete</button>
