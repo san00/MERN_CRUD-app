@@ -1,5 +1,4 @@
 import React from 'react'
-import './App.css'
 import Form from './components/Form'
 import Data from './components/Data'
 import Navbar from './components/Navbar'
