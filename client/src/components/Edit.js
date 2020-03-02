@@ -1,63 +1,66 @@
 import React from 'react'
+import useForm from './useForm'
 import axios from 'axios'
-import useForm from './useForm';
+import { withRouter } from 'react-router-dom'
 
-function Form() {
-    const submit = () => {
+function Edit(props) {
+
+    const update = (e) => {
+        e.preventDefault();
+
         const listing = {
             jobTitle: jobTitle,
             salary: salary,
             description: description
         }
-        axios.post('/api/items', listing)
-            .then(res => { console.log(res) })
+
+        axios.put(`/api/items/${props.match.params.id}`, listing)
+            .then(res => {
+                console.log(res)
+            })
     }
 
-    const { handleChange, handleSubmit, values } = useForm(submit)
+    const { handleChange, handleSubmit, values } = useForm(update)
     const { jobTitle, salary, description } = values
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h2>Create new vacancy</h2>
-            <div>
+        <>
+            <p>Edit vacancy</p>
+            <form onSubmit={handleSubmit}>
+
                 <label htmlFor='job title'>Job title:
                 <input name='jobTitle'
-                        type='jobTitle'
-                        id='job title'
+                        type='jobTitle' id='job title'
                         placeholder='job title'
                         onChange={handleChange}
-                        value={jobTitle}></input>
+                        value={jobTitle}>
+                    </input>
                 </label>
-            </div>
 
-            <div>
                 <label htmlFor='salary'>Salary:
                 <input name='salary'
                         type='salary'
-                        id='salary'
-                        placeholder='salary'
+                        id='salary' placeholder='salary'
                         onChange={handleChange}
-                        value={salary}></input>
+                        value={salary}>
+                    </input>
                 </label>
-            </div>
 
-            <div>
                 <label htmlFor='description'>Description:
                 <input name='description'
                         type='description'
                         id='description'
                         placeholder='description'
                         onChange={handleChange}
-                        value={description}></input>
+                        value={description}>
+                    </input>
                 </label>
-            </div>
-            <label htmlFor='submit'>
-                <input type='submit'
-                    id='submit'
-                    value='save'></input>
-            </label>
-        </form>
+                <div>
+                    <button type='submit' onClick={(e) => update(e)}>Update</button>
+                </div>
+            </form>
+        </>
     )
 }
 
-export default Form;
+export default withRouter(Edit)
