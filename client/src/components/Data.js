@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import List from './List'
+import DisplayJob from './DisplayJob'
 
 function Data() {
-    const [listItems, setListItems] = useState([])
+    const [vacancy, setVacancy] = useState([])
 
     useEffect(() => {
         const fetchItems = async () => {
             axios.get('/api/items')
                 .then(res => {
-                    setListItems(res.data)
+                    setVacancy(res.data)
                 }).catch((error) => {
                     console.error(error);
                 })
         }
         fetchItems()
-        
+
     }, [])
 
 
@@ -29,15 +29,18 @@ function Data() {
         window.location = '/'
     }
 
-    const itemsInList = listItems ? (listItems.map((jobPost, id, index) => {
+    const jobInfo = vacancy ? (vacancy.map((jobPost, id, index) => {
         return (
-            <List key={id} jobPost={jobPost} index={index} removeItem={removeItem} />
+            <DisplayJob key={id}
+                jobPost={jobPost}
+                index={index}
+                removeItem={removeItem} />
         )
     })) : 'Error, unable to connect'
-   
+
     return (
         <section>
-            {itemsInList}
+            {jobInfo}
         </section>
     )
 }
