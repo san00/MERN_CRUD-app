@@ -25,7 +25,8 @@ function Form() {
                     id='job title'
                     placeholder='job title'
                     onChange={handleChange}
-                    value={jobTitle}></input>
+                    value={jobTitle}
+                    required></input>
                 <label className='form__label' htmlFor='job title'>Job title:</label>
 
                 <input className='form__input' name='salary'
@@ -33,7 +34,8 @@ function Form() {
                     id='salary'
                     placeholder='salary'
                     onChange={handleChange}
-                    value={salary}></input>
+                    value={salary}
+                    required></input>
                 <label className='form__label' htmlFor='salary'>Salary:</label>
 
                 <input className='form__input' name='description'
@@ -41,7 +43,8 @@ function Form() {
                     id='description'
                     placeholder='description'
                     onChange={handleChange}
-                    value={description}></input>
+                    value={description}
+                    required></input>
                 <label className='form__label' htmlFor='description'>Description: </label>
                 <div>
                     <input className='button' type='submit'
