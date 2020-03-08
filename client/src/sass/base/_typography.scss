@@ -1,0 +1,68 @@
+// Type/font scale
+$text-base: 1em;
+$text-scale: 1.2;
+$body-text: $text-base;
+$body-small: calc(#{$body-text} / #{$text-scale});
+$caption: calc(#{$body-small} / #{$text-scale});
+$h6: calc(#{$body-text} * #{$text-scale});
+$h5: calc(#{$h6} * #{$text-scale});
+$h4: calc(#{$h5} * #{$text-scale});
+$h3: calc(#{$h4} * #{$text-scale});
+$h2: calc(#{$h3} * #{$text-scale});
+$h1: calc(#{$h2} * #{$text-scale});
+
+body {
+    font-size: $text-base;
+}
+
+h1,
+.h1-like {
+    font-size: $h1;
+}
+
+h2,
+.h2-like {
+    font-size: $h2;
+}
+
+h3,
+.h3-like {
+    font-size: $h3;
+}
+
+h4,
+.h4-like {
+    font-size: $h4;
+}
+
+h5,
+.h5-like {
+    font-size: $h5;
+}
+
+h6,
+.h6-like {
+    font-size: $h6;
+}
+
+p,
+.body-text {
+    font-size: $body-text;
+}
+
+.body-small,
+small {
+    font-size: $body-small;
+}
+
+.caption {
+    font-size: $caption;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    line-height: 1.2em;
+}

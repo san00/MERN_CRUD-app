@@ -1,0 +1,22 @@
+.nav {
+    background-color: $background-colour;
+    margin-bottom: $spacing-l;
+}
+
+.nav__container {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+    padding: $spacing-s 0;
+}
+
+.nav__header {
+    color: $secondary-text-colour;
+    font-size: $h1;
+}
+
+.nav__link-create,
+.nav__link-home {
+    color: $secondary-text-colour;
+    font-size: $body-text;
+}
