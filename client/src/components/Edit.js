@@ -33,7 +33,8 @@ function Edit(props) {
                         type='jobTitle' id='job title'
                         placeholder='job title'
                         onChange={handleChange}
-                        value={jobTitle}>
+                        value={jobTitle}
+                        required>
                     </input>
                 </label>
 
@@ -42,7 +43,8 @@ function Edit(props) {
                         type='salary'
                         id='salary' placeholder='salary'
                         onChange={handleChange}
-                        value={salary}>
+                        value={salary}
+                        required>
                     </input>
                 </label>
 
@@ -52,7 +54,8 @@ function Edit(props) {
                         id='description'
                         placeholder='description'
                         onChange={handleChange}
-                        value={description}>
+                        value={description}
+                        required>
                     </input>
                 </label>
                 <div>
