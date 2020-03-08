@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function List({ jobPost, removeItem }) {
+function DisplayJob({ jobPost, removeItem }) {
     const { jobTitle, salary, description, _id } = jobPost
 
     return (
@@ -15,4 +15,4 @@ function List({ jobPost, removeItem }) {
     )
 }
 
-export default List
+export default DisplayJob
