@@ -1,0 +1,70 @@
+.displayJob {
+    border-top: none;
+    border: 0.1em solid darken($background-colour-light, 7%);
+    color: $primary-text-colour;
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-s;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    &:hover {
+        background-color: $background-colour-light;
+    }
+    @media(min-width:$breakpoint-desktop) {
+        align-items: center;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: $spacing-s;
+    }
+}
+
+.displayJob__container {
+    margin-bottom: $spacing-l;
+}
+
+.displayJob__header {
+    background-color: $background-colour-light;
+    border: 0.1em solid darken($background-colour-light, 8%);
+    font-size: $body-text;
+    padding: $spacing-s;
+}
+
+.displayjob__title {
+    font-size: $h2;
+    margin: 0;
+    word-break: break-all;
+}
+
+.displayJob__description {
+    font-size: $body-text;
+    margin-top: $spacing-xs;
+}
+
+.displayJob__salary {
+    color: $text-colour-grey;
+    margin-bottom: $spacing-m;
+    margin-top: $spacing-s;
+}
+
+.displayJob__button--delete {
+    background: $button-delete-colour;
+    border-radius: 0.2em;
+    &:hover {
+        background: $button-delete-hover;
+    }
+}
+
+.displayJob__button--edit {
+    margin-right: $spacing-xxs;
+}
+
+.displayJob__message {
+    align-items: center;
+    border-top: none;
+    justify-content: center;
+    padding: $spacing-l;
+    text-align: center;
+    &:hover {
+        background: none;
+    }
+}
