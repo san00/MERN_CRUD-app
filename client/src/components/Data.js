@@ -29,7 +29,7 @@ function Data() {
         window.location = '/'
     }
 
-    const jobInfo = vacancy.length === 0 ? (<h3> There are currently no jobs listed</h3>) : vacancy.map((jobPost, id, index) => {
+    const jobInfo = vacancy.length === 0 ? (<h2 className='displayJob displayJob__message'> There are currently no jobs listed</h2>) : vacancy.map((jobPost, id, index) => {
         return (
             <DisplayJob key={id}
                 jobPost={jobPost}
@@ -39,7 +39,8 @@ function Data() {
     })
 
     return (
-        <section>
+        <section className='content__container displayJob__container'>
+            <p className='displayJob__header'>Jobs</p>
             {jobInfo}
         </section>
     )

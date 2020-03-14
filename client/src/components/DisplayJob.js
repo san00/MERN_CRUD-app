@@ -5,13 +5,17 @@ function DisplayJob({ jobPost, removeItem }) {
     const { jobTitle, salary, description, _id } = jobPost
 
     return (
-        <article>
-            <h1>{jobTitle}</h1>
-            <p>{salary}</p>
-            <p>{description}</p>
-            <button type='submit' onClick={removeItem}>Delete</button>
-            <Link to={`/edit/${_id}`}><button>Edit</button></Link>
-        </article>
+        <Link className='displayJob' to={`/edit/${_id}`}>
+            <div>
+                <h3 className='displayJob__title'>{jobTitle}</h3>
+                <p className='displayJob__description'>{description}</p>
+                <p className='displayJob__salary'>{salary}</p>
+            </div>
+            <div>
+                <button className='button displayJob__button--edit'>Edit</button>
+                <button className='button displayJob__button--delete' type='submit' onClick={removeItem}>Delete</button>
+            </div>
+        </Link>
     )
 }
 
