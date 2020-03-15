@@ -12,13 +12,21 @@
 }
 
 .form__input {
-    height: 3vh;
     font-size: $caption;
+    height: 3em;    
 }
 
 .form__input,
 .form__label {
-    
     cursor: pointer;
     margin-bottom: $spacing-s;
+}
+
+.form__label--description{
+    margin-bottom: $spacing-m;
+}
+
+.form__button{
+    display: flex;
+    justify-content: right;
 }
