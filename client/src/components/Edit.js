@@ -24,45 +24,40 @@ function Edit(props) {
     const { jobTitle, salary, description } = values
 
     return (
-        <>
-            <p>Edit vacancy</p>
-            <form onSubmit={handleSubmit}>
+        <div className='content__container'>
+            <form className='form' onSubmit={handleSubmit}>
+                <h2 className='form__header'>Edit vacancy</h2>
+                <input className='form__input' name='jobTitle'
+                    type='jobTitle'
+                    id='job title'
+                    placeholder='job title'
+                    onChange={handleChange}
+                    value={jobTitle}
+                    required></input>
+                <label className='form__label' htmlFor='job title'>Job title:</label>
 
-                <label htmlFor='job title'>Job title:
-                <input name='jobTitle'
-                        type='jobTitle' id='job title'
-                        placeholder='job title'
-                        onChange={handleChange}
-                        value={jobTitle}
-                        required>
-                    </input>
-                </label>
+                <input className='form__input' name='salary'
+                    type='salary'
+                    id='salary'
+                    placeholder='salary'
+                    onChange={handleChange}
+                    value={salary}
+                    required></input>
+                <label className='form__label' htmlFor='salary'>Salary:</label>
 
-                <label htmlFor='salary'>Salary:
-                <input name='salary'
-                        type='salary'
-                        id='salary' placeholder='salary'
-                        onChange={handleChange}
-                        value={salary}
-                        required>
-                    </input>
-                </label>
-
-                <label htmlFor='description'>Description:
-                <input name='description'
-                        type='description'
-                        id='description'
-                        placeholder='description'
-                        onChange={handleChange}
-                        value={description}
-                        required>
-                    </input>
-                </label>
-                <div>
-                    <button type='submit' onClick={(e) => update(e)}>Update</button>
+                <input className='form__input' name='description'
+                    type='description'
+                    id='description'
+                    placeholder='description'
+                    onChange={handleChange}
+                    value={description}
+                    required></input>
+                <label className='form__label form__label--description' htmlFor='description'>Description: </label>
+                <div className='form__button'>
+                    <button className='button' type='submit' onClick={(e) => update(e)}>Update</button>
                 </div>
             </form>
-        </>
+        </div>
     )
 }
 
