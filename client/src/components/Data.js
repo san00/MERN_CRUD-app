@@ -40,7 +40,7 @@ function Data() {
 
     return (
         <section className='content__container displayJob__container'>
-            <p className='displayJob__header'>Jobs</p>
+            <p className='displayJob__header'>Vacancies</p>
             {jobInfo}
         </section>
     )

@@ -19,7 +19,7 @@ function Form() {
     return (
         <div className='content__container'>
             <form className='form' onSubmit={handleSubmit}>
-                <h2 className='form__header'>Add a job</h2>
+                <h2 className='form__header'>Add vacancy</h2>
                 <input className='form__input' name='jobTitle'
                     type='jobTitle'
                     id='job title'
@@ -45,8 +45,8 @@ function Form() {
                     onChange={handleChange}
                     value={description}
                     required></input>
-                <label className='form__label' htmlFor='description'>Description: </label>
-                <div>
+                <label className='form__label form__label--description' htmlFor='description'>Description: </label>
+                <div className='form__button'>
                     <input className='button' type='submit'
                         id='submit'
                         value='Save job'></input>
