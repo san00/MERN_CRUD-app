@@ -11,7 +11,7 @@ function DisplayJob({ jobPost, removeItem }) {
                 <p className='displayJob__description'>{description}</p>
                 <p className='displayJob__salary'>{salary}</p>
             </div>
-            <div>
+            <div className='displayJob__button--container'>
                 <button className='button displayJob__button--edit'>Edit</button>
                 <button className='button displayJob__button--delete' type='submit' onClick={removeItem}>Delete</button>
             </div>
