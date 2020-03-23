@@ -4,6 +4,7 @@ import DisplayJob from './DisplayJob'
 
 function Data() {
     const [vacancy, setVacancy] = useState([])
+    const [remove, setRemove] = useState([])
 
     useEffect(() => {
         const fetchItems = async () => {
@@ -16,24 +17,25 @@ function Data() {
         }
         fetchItems()
 
-    }, [])
+    }, [remove, setVacancy])
 
 
-    const removeItem = (id) => {
+    const removeItem = (e, id) => {
+        e.preventDefault();
         axios.delete(`/api/items/${id}`)
             .then(res => console.log(res.data)
             )
             .catch((error) => {
                 console.error(error);
             })
-        window.location = '/'
+        setRemove(vacancy.filter(item => item.id !== id))
     }
 
     const jobInfo = vacancy.length === 0 ? (<h2 className='displayJob displayJob__message'> There are currently no jobs listed</h2>) : vacancy.map((jobPost, id, index) => {
         return (
             <DisplayJob key={id}
                 jobPost={jobPost}
-                index={index}
+                index={id}
                 removeItem={removeItem} />
         )
     })
