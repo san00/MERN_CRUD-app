@@ -13,7 +13,7 @@ function DisplayJob({ jobPost, removeItem }) {
             </div>
             <div className='displayJob__button--container'>
                 <button className='button displayJob__button--edit'>Edit</button>
-                <button className='button displayJob__button--delete' type='submit' onClick={removeItem}>Delete</button>
+                <button className='button displayJob__button--delete' type='submit' onClick={(e, _id) => removeItem(e, _id)}>Delete</button>
             </div>
         </Link>
     )
