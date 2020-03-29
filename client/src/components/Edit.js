@@ -18,10 +18,22 @@ function Edit(props) {
             .then(res => {
                 console.log(res)
             })
+        window.location = '/'
     }
 
     const { handleChange, handleSubmit, values } = useForm(update)
     const { jobTitle, salary, description } = values
+
+    // const [directToHome, setDirectToHome] = useState(false)
+    // setDirectToHome(true)
+    // if (directToHome === true) {
+    //     return <Redirect to='/' />
+    //   }
+
+    //   useEffect(() => {
+
+    //     //    return props.history.push('/')
+    // }, [directToHome])
 
     return (
         <div className='content__container'>
