@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import DisplayJob from './DisplayJob'
 
-function Data() {
+function ReadAndDelete() {
     const [vacancy, setVacancy] = useState([])
     const [remove, setRemove] = useState([])
 
@@ -48,4 +48,4 @@ function Data() {
     )
 }
 
-export default Data
+export default ReadAndDelete

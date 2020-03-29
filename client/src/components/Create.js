@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import useForm from './useForm';
 
-function Form() {
+function Create() {
     const submit = () => {
         const listing = {
             jobTitle: jobTitle,
@@ -59,4 +59,4 @@ function Form() {
     )
 }
 
-export default Form;
+export default Create;
