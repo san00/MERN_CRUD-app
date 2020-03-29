@@ -24,17 +24,6 @@ function Edit(props) {
     const { handleChange, handleSubmit, values } = useForm(update)
     const { jobTitle, salary, description } = values
 
-    // const [directToHome, setDirectToHome] = useState(false)
-    // setDirectToHome(true)
-    // if (directToHome === true) {
-    //     return <Redirect to='/' />
-    //   }
-
-    //   useEffect(() => {
-
-    //     //    return props.history.push('/')
-    // }, [directToHome])
-
     return (
         <div className='content__container'>
             <form className='form' onSubmit={handleSubmit}>
