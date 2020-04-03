@@ -11,7 +11,6 @@ function Create() {
         }
         axios.post('/api/items', listing)
             .then(res => { console.log(res) })
-        window.location = '/'
     }
 
     const { handleChange, handleSubmit, values } = useForm(submit)
