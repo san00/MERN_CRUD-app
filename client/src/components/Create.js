@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import useForm from './useForm';
 
-function Create() {
+function Create(props) {
     const submit = () => {
         const listing = {
             jobTitle: jobTitle,
@@ -11,6 +11,7 @@ function Create() {
         }
         axios.post('/api/items', listing)
             .then(res => { console.log(res) })
+        props.history.push('/');
     }
 
     const { handleChange, handleSubmit, values } = useForm(submit)
