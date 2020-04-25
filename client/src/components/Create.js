@@ -1,6 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import useForm from './useForm';
+import validate from '../validate';
 
 function Create(props) {
     const submit = () => {
@@ -14,14 +15,14 @@ function Create(props) {
         props.history.push('/');
     }
 
-    const { handleChange, handleSubmit, values } = useForm(submit)
-    const { jobTitle, salary, description, validationErrors } = values
+    const { handleChange, handleSubmit, values, errors } = useForm(submit, validate)
+    const { jobTitle, salary, description} = values
 
     return (
         <div className='content__container'>
             <form className='form' onSubmit={handleSubmit}>
                 <h2 className='form__header'>Add vacancy</h2>
-                <span className='handle-error'>{validationErrors.jobTitle}</span>
+                <span className='handle-error'>{errors.jobTitle}</span>
                 <input className='form__input' name='jobTitle'
                     type='jobTitle'
                     id='job title'
@@ -30,7 +31,7 @@ function Create(props) {
                     value={jobTitle}
                 ></input>
                 <label className='form__label' htmlFor='job title'>Job title:</label>
-                <span className='handle-error'>{validationErrors.salary}</span>
+                <span className='handle-error'>{errors.salary}</span>
                 <input className='form__input' name='salary'
                     type='salary'
                     id='salary'
@@ -39,7 +40,7 @@ function Create(props) {
                     value={salary}
                 ></input>
                 <label className='form__label' htmlFor='salary'>Salary:</label>
-                <span className='handle-error'>{validationErrors.description}</span>
+                <span className='handle-error'>{errors.description}</span>
                 <input className='form__input' name='description'
                     type='description'
                     id='description'

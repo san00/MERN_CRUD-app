@@ -2,6 +2,7 @@ import React from 'react'
 import useForm from './useForm'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
+import validate from '../validate'
 
 function Edit(props) {
 
@@ -18,16 +19,17 @@ function Edit(props) {
             .then(res => {
                 console.log(res)
             })
-        window.location = '/'
+        window.location = '/'   
     }
 
-    const { handleChange, handleSubmit, values } = useForm(update)
+    const { handleChange, handleSubmit, values, errors } = useForm(update, validate)
     const { jobTitle, salary, description } = values
 
     return (
         <div className='content__container'>
             <form className='form' onSubmit={handleSubmit}>
                 <h2 className='form__header'>Edit vacancy</h2>
+                <span className='handle-error'>{errors.jobTitle}</span>
                 <input className='form__input' name='jobTitle'
                     type='jobTitle'
                     id='job title'
