@@ -4,19 +4,20 @@ import useForm from './useForm';
 import validate from '../validate';
 
 function Create(props) {
-    const submit = () => {
+
+    const submit = async () => {
         const listing = {
             jobTitle: jobTitle,
             salary: salary,
             description: description
         }
-        axios.post('/api/items', listing)
-            .then(res => { console.log(res) })
+        const result = await axios.post('/api/items', listing)
+        console.log(result)
         props.history.push('/');
     }
 
     const { handleChange, handleSubmit, values, errors } = useForm(submit, validate)
-    const { jobTitle, salary, description} = values
+    const { jobTitle, salary, description } = values
 
     return (
         <div className='content__container'>
