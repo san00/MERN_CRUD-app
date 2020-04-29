@@ -6,7 +6,7 @@ import validate from '../validate'
 
 function Edit(props) {
 
-    const update = (e) => {
+    const update = async (e) => {
         e.preventDefault();
 
         const listing = {
@@ -14,12 +14,9 @@ function Edit(props) {
             salary: salary,
             description: description
         }
-
-        axios.put(`/api/items/${props.match.params.id}`, listing)
-            .then(res => {
-                console.log(res)
-            })
-        window.location = '/'   
+        const result = await axios.put(`/api/items/${props.match.params.id}`, listing)
+        console.log(result)
+        window.location = '/'
     }
 
     const { handleChange, handleSubmit, values, errors } = useForm(update, validate)
