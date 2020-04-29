@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import useForm from './useForm'
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
@@ -16,11 +16,25 @@ function Edit(props) {
         }
         const result = await axios.put(`/api/items/${props.match.params.id}`, listing)
         console.log(result)
-        window.location = '/'
+        props.history.push('/');
     }
 
-    const { handleChange, handleSubmit, values, errors } = useForm(update, validate)
+    const { handleChange, handleSubmit, values, setValues, errors } = useForm(update, validate)
     const { jobTitle, salary, description } = values
+
+    useEffect(() => {
+        const getData = async () => {
+            const res = await axios.get(`/api/items/${props.match.params.id}`)
+
+            setValues({
+                jobTitle: res.data.jobTitle,
+                salary: res.data.salary,
+                description: res.data.description
+            })
+        }
+
+        getData()
+    }, [])
 
     return (
         <div className='content__container'>

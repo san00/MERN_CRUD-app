@@ -30,7 +30,7 @@ const useForm = (callback, validate) => {
     return {
         handleChange,
         handleSubmit,
-        values, errors
+        values, errors, setValues
     }
 }
 export default useForm
