@@ -29,7 +29,7 @@ function Create(props) {
                     id='job title'
                     placeholder='job title'
                     onChange={handleChange}
-                    value={jobTitle}
+                    value={jobTitle || ''}
                 ></input>
                 <label className='form__label' htmlFor='job title'>Job title:</label>
                 <span className='handle-error'>{errors.salary}</span>
@@ -38,7 +38,7 @@ function Create(props) {
                     id='salary'
                     placeholder='salary'
                     onChange={handleChange}
-                    value={salary}
+                    value={salary || ''}
                 ></input>
                 <label className='form__label' htmlFor='salary'>Salary:</label>
                 <span className='handle-error'>{errors.description}</span>
@@ -47,7 +47,7 @@ function Create(props) {
                     id='description'
                     placeholder='description'
                     onChange={handleChange}
-                    value={description}
+                    value={description || ''}
                 ></input>
                 <label className='form__label form__label--description' htmlFor='description'>Description: </label>
                 <div className='form__button'>
