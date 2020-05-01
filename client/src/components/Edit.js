@@ -46,8 +46,8 @@ function Edit(props) {
                     id='job title'
                     placeholder='job title'
                     onChange={handleChange}
-                    value={jobTitle}
-                    required></input>
+                    value={jobTitle || ''}
+                   ></input>
                 <label className='form__label' htmlFor='job title'>Job title:</label>
 
                 <input className='form__input' name='salary'
@@ -55,8 +55,8 @@ function Edit(props) {
                     id='salary'
                     placeholder='salary'
                     onChange={handleChange}
-                    value={salary}
-                    required></input>
+                    value={salary || ''}
+                   ></input>
                 <label className='form__label' htmlFor='salary'>Salary:</label>
 
                 <input className='form__input' name='description'
@@ -64,8 +64,8 @@ function Edit(props) {
                     id='description'
                     placeholder='description'
                     onChange={handleChange}
-                    value={description}
-                    required></input>
+                    value={description || ''}
+                   ></input>
                 <label className='form__label form__label--description' htmlFor='description'>Description: </label>
                 <div className='form__button'>
                     <button className='button' type='submit' onClick={(e) => update(e)}>Update</button>

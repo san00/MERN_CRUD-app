@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const useForm = (callback, validate) => {
     const [values, setValues] = useState({
@@ -7,12 +7,15 @@ const useForm = (callback, validate) => {
         description: '',
     })
 
-    const [errors, setErrors] = useState({
-        jobTitle: '',
-        salary: '',
-        description: ''
-    })
-
+    const [errors, setErrors] = useState({})
+    const [isSubmitting, setIsSubmitting] = useState(false)
+    
+    useEffect(() => {
+        if (Object.keys(errors).length === 0 && isSubmitting) {
+            callback()
+        }
+    }, [errors])
+    
     const handleChange = (e) => {
         const { name, value } = e.target
         setValues({
@@ -24,7 +27,7 @@ const useForm = (callback, validate) => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors(validate(values))
-        callback()
+        setIsSubmitting(true)
     }
 
     return {
