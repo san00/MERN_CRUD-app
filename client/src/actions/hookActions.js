@@ -15,6 +15,11 @@ export const mockEditAxiosCall = async (setValues) => {
     setValues(response.data)
 }
 
+export const mockCreateAxiosCall = async (setValues) => {
+    const response = await axios.post('/api/items')
+    setValues(response.data)
+}
+
 // default export for mocking convenience
 export default {
     mockAxiosCall, mockDeleteAxiosCall, mockEditAxiosCall

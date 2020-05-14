@@ -2,8 +2,10 @@ import moxios from 'moxios'
 
 import { mockAxiosCall } from './hookActions'
 
-
 describe('Test database CRUD actions with moxios', () => {
+    let mockData
+    let request 
+
     beforeEach(() => {
         moxios.install()
     })
@@ -11,12 +13,11 @@ describe('Test database CRUD actions with moxios', () => {
         moxios.uninstall()
     })
 
-
-    test('Calls database & gets response from axios', async () => {
+    test('Get database items', async () => {
         const jobInfo = 'developer'
 
         moxios.wait(() => {
-            const request = moxios.requests.mostRecent()
+            request = moxios.requests.mostRecent()
             request.respondWith({
                 status: 200,
                 response: jobInfo,
@@ -24,7 +25,7 @@ describe('Test database CRUD actions with moxios', () => {
         })
 
         // Create mock for callback arg
-        const mockData = jest.fn()
+        mockData = jest.fn()
 
         await mockAxiosCall(mockData)
 
@@ -36,19 +37,15 @@ describe('Test database CRUD actions with moxios', () => {
         const deletedMessage = 'item deleted'
 
         moxios.wait(() => {
-            const request = moxios.requests.mostRecent()
+            request = moxios.requests.mostRecent()
             request.respondWith({
                 status: 200,
                 response: deletedMessage,
             })
         })
 
-        // Create mock for callback arg
-        const mockData = jest.fn()
-
+        mockData = jest.fn()
         await mockAxiosCall(mockData)
-
-        // See whether mock was run with correct argument
         expect(mockData).toHaveBeenCalledWith(deletedMessage)
     })
 
@@ -56,20 +53,32 @@ describe('Test database CRUD actions with moxios', () => {
         const editedItem = 'item updated'
 
         moxios.wait(() => {
-            const request = moxios.requests.mostRecent()
+            request = moxios.requests.mostRecent()
             request.respondWith({
                 status: 200,
                 response: editedItem,
             })
         })
 
-        // Create mock for callback arg
-        const mockData = jest.fn()
-
+        mockData = jest.fn()
         await mockAxiosCall(mockData)
-
-        // See whether mock was run with correct argument
         expect(mockData).toHaveBeenCalledWith(editedItem)
+    })
+
+    test('Creates database item', async () => {
+        const CreateItem = 'item created'
+
+        moxios.wait(() => {
+            request = moxios.requests.mostRecent()
+            request.respondWith({
+                status: 200,
+                response: CreateItem,
+            })
+        })
+
+        mockData = jest.fn()
+        await mockAxiosCall(mockData)
+        expect(mockData).toHaveBeenCalledWith(CreateItem)
     })
 
 })
