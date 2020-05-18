@@ -20,7 +20,7 @@ function Create(props) {
     const { jobTitle, salary, description } = values
 
     return (
-        <div className='content__container'>
+        <div className='content__container' data-test='component-CreateVacancy'>
             <form className='form' onSubmit={handleSubmit}>
                 <h2 className='form__header'>Add vacancy</h2>
                 <span className='handle-error'>{errors.jobTitle}</span>
