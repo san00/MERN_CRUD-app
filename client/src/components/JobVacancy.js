@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import numeral from "numeral";
 
 function JobVacancy({ jobPost, removeItem }) {
   const { jobTitle, salary, description, _id } = jobPost;
@@ -9,7 +10,7 @@ function JobVacancy({ jobPost, removeItem }) {
       <div>
         <h3 className="displayJob__title">{jobTitle}</h3>
         <p className="displayJob__description">{description}</p>
-        <p className="displayJob__salary">{salary}</p>
+        <p className="displayJob__salary">£{numeral(salary).format("£0,0")}k</p>
       </div>
       <div className="displayJob__button--container">
         <button className="button displayJob__button--edit">Edit</button>
