@@ -7,11 +7,11 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 function App() {
   return (
-    <Router>
-      <Navbar data-test='component-app' />
-      <Route path="/" exact component={ReadAndDelete} data-test='component-app' />
-      <Route path="/create" component={Create} data-test='component-app' />
-      <Route path="/edit/:id" component={Edit} data-test='component-app' />
+    <Router data-test='component-app' >
+      <Navbar/>
+      <Route path="/" exact component={ReadAndDelete} />
+      <Route path="/create" component={Create} />
+      <Route path="/edit/:id" component={Edit} />
     </Router>
   );
 }
