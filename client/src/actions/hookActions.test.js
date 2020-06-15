@@ -1,84 +1,35 @@
-import moxios from 'moxios'
+import moxios from "moxios";
 
-import { mockAxiosCall } from './hookActions'
+import { getDatabaseItems } from "./hookActions";
 
-describe('Test database CRUD actions with moxios', () => {
-    let mockData
-    let request 
+describe("moxios tests for CRUD actions", () => {
+  let mockData;
+  let request;
 
-    beforeEach(() => {
-        moxios.install()
-    })
-    afterEach(() => {
-        moxios.uninstall()
-    })
+  beforeEach(() => {
+    moxios.install();
+  });
+  afterEach(() => {
+    moxios.uninstall();
+  });
 
-    test('Get database items', async () => {
-        const jobInfo = 'developer'
+  test("Mocks getting database items", async () => {
+    const jobTitle = "developer";
 
-        moxios.wait(() => {
-            request = moxios.requests.mostRecent()
-            request.respondWith({
-                status: 200,
-                response: jobInfo,
-            })
-        })
+    moxios.wait(() => {
+      request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 200,
+        response: jobTitle,
+      });
+    });
 
-        // Create mock for callback arg
-        mockData = jest.fn()
+    // Create mock for callback arg
+    mockData = jest.fn();
 
-        await mockAxiosCall(mockData)
+    await getDatabaseItems(mockData);
 
-        // See whether mock was run with correct argument
-        expect(mockData).toHaveBeenCalledWith(jobInfo)
-    })
-
-    test('Deletes database item', async () => {
-        const deletedMessage = 'item deleted'
-
-        moxios.wait(() => {
-            request = moxios.requests.mostRecent()
-            request.respondWith({
-                status: 200,
-                response: deletedMessage,
-            })
-        })
-
-        mockData = jest.fn()
-        await mockAxiosCall(mockData)
-        expect(mockData).toHaveBeenCalledWith(deletedMessage)
-    })
-
-    test('Updates database item', async () => {
-        const editedItem = 'item updated'
-
-        moxios.wait(() => {
-            request = moxios.requests.mostRecent()
-            request.respondWith({
-                status: 200,
-                response: editedItem,
-            })
-        })
-
-        mockData = jest.fn()
-        await mockAxiosCall(mockData)
-        expect(mockData).toHaveBeenCalledWith(editedItem)
-    })
-
-    test('Creates database item', async () => {
-        const CreateItem = 'item created'
-
-        moxios.wait(() => {
-            request = moxios.requests.mostRecent()
-            request.respondWith({
-                status: 200,
-                response: CreateItem,
-            })
-        })
-
-        mockData = jest.fn()
-        await mockAxiosCall(mockData)
-        expect(mockData).toHaveBeenCalledWith(CreateItem)
-    })
-
-})
+    // See whether mock was run with correct argument
+    expect(mockData).toHaveBeenCalledWith(jobTitle);
+  });
+});
