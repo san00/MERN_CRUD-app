@@ -3,7 +3,7 @@ import Enzyme, { mount } from "enzyme";
 import EnzymeAdapter from "enzyme-adapter-react-16";
 
 import { findByTestAttr } from "../tests/testUtils";
-import ReadAndDelete from "./components/ReadAndDelete";
+import VacancyList from "./components/VacancyList";
 import hookActions from "./actions/hookActions";
 
 Enzyme.configure({ adapter: new EnzymeAdapter() });
@@ -21,7 +21,7 @@ const setup = () => {
 
   // use mount as useEffect is not called on `shallow`
   // https://github.com/enzymejs/enzyme/issues/2086
-  return mount(<ReadAndDelete />);
+  return mount(<VacancyList />);
 };
 
 test("Component renders without error", () => {

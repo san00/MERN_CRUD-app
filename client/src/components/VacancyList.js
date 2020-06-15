@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import DisplayJob from "./DisplayJob";
+import JobVacancy from "./JobVacancy";
 import hookActions from "../actions/hookActions";
 
-function ReadAndDelete() {
+function VacancyList() {
   const [vacancy, setVacancy] = useState([]);
   const [remove, setRemove] = useState([]);
 
@@ -42,7 +42,7 @@ function ReadAndDelete() {
     ) : (
       vacancy.map((jobPost, id, index) => {
         return (
-          <DisplayJob
+          <JobVacancy
             key={id}
             jobPost={jobPost}
             index={id}
@@ -63,4 +63,4 @@ function ReadAndDelete() {
   );
 }
 
-export default ReadAndDelete;
+export default VacancyList;
