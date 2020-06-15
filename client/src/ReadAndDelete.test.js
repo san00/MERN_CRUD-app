@@ -29,3 +29,10 @@ test("Component renders without error", () => {
   const component = findByTestAttr(wrapper, "component-ReadAndDelete");
   expect(component.length).toBe(1);
 });
+
+describe("Database call", () => {
+  test("setVacancy gets all db items & updates changes", () => {
+    setup();
+    expect(mockGetItems).toHaveBeenCalled();
+  });
+});

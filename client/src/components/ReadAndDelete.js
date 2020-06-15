@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import DisplayJob from "./DisplayJob";
+import hookActions from "../actions/hookActions";
 
 function ReadAndDelete() {
   const [vacancy, setVacancy] = useState([]);
   const [remove, setRemove] = useState([]);
 
   useEffect(() => {
+    hookActions.getDatabaseItems(setVacancy);
     const fetchItems = async () => {
       axios
         .get("/api/items")
