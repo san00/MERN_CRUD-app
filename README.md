@@ -1,4 +1,4 @@
-# MERNstack - Job vacancy manager
+# MERN - Job vacancy manager
 
 A responsive, fullstack, CRUD application (create, read, update, delete) designed & built from scratch to manage job vacancies.
 App styling Sass & BEM naming. 
