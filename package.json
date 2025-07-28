@@ -29,6 +29,7 @@
     "mongoose": "^5.7.12"
   },
   "devDependencies": {
-    "nodemon": "^2.0.0"
+    "nodemon": "^2.0.0",
+    "sass": "^1.89.2"
   }
 }
