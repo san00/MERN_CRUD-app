@@ -2,6 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.scss'
 import App from './App'
+import axios from 'axios';
+
+// Set base URL for all axios requests
+axios.defaults.baseURL = process.env.REACT_APP_API_URL;
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(<App />, document.getElementById('root'))
